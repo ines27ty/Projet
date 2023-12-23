@@ -126,4 +126,7 @@ print("Conductivité orthogonal = ",K_ortho)
 
 u_3 = 0.00444117
 u_1 = 0.0011750
-
+k_para_num = u_1*mu
+print('Perméabilité parallele numérique = ',k_para_num)
+K_para_num = k_para_num*rho*g/mu
+print('Conductivité parallele numérique = ',K_para_num)
