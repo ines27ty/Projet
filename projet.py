@@ -119,10 +119,11 @@ print('Perméabilité orthogonal = ',k_ortho)
 K_ortho = k_ortho*rho*g/mu
 print("Conductivité orthogonal = ",K_ortho)
 
+print(beta1)
+print(beta2)
+print(beta3)
 
-#plt.show()
-
-
+plt.show()
 
 u_3 = 0.00444117
 u_1 = 0.0011750
