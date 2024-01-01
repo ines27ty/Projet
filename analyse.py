@@ -53,6 +53,7 @@ k_1_br = mu/coef1[1]
 print('Perméabilité du milieu 1 br k_1 = ',k_1_br)
 
 beta1 = [(Perte_1[i]/L-mu*Vitesse_1[i]/k_1_hr)*1/(rho*Vitesse_1[i]**2) for i in range(5,len(Vitesse_1))]
+
 conduc_1 =k_1_br*rho*g/mu
 print('Conductivité du milieu 1 K1 = ',conduc_1)
 
@@ -101,39 +102,25 @@ plt.xlabel('Re')
 plt.ylabel('beta')
 plt.legend()
 
-k_1 = np.mean([k_1_hr,k_1_br])
-k_2 = np.mean([k_2_hr,k_2_br])
-k_3 = np.mean([k_3_hr,k_3_br])
 
-# Conductivité et perméabilité équivalente
+v_equ3 = -9.17*10**(-4)
+u_equ3 = 0.0043 
 
-#parallèle
-k_para = (k_1 + k_2 + k_3)/3
-print('Perméabilité parallele = ',k_para)
-K_para = k_para*rho*g/mu
-print('Conductivité parallele = ',K_para)
+por_eq = 0.8
+k_eq_hor = (k_3_br+k_1_br+k_2_br)/3
 
-#orthogonal
-k_ortho = 3/(((1/k_1)+(1/k_2)+(1/k_3)))
-print('Perméabilité orthogonal = ',k_ortho)
-K_ortho = k_ortho*rho*g/mu
-print("Conductivité orthogonal = ",K_ortho)
+print('Perméabilité équivalente horizontale k_eq_hor = ',k_eq_hor)
 
-
-
-u_3 = 0.00444117
-u_1 = 0.0011750
-k_para_num = u_1*mu
-print('Perméabilité parallele numérique = ',k_para_num)
-K_para_num = k_para_num*rho*g/mu
-print('Conductivité parallele numérique = ',K_para_num)
+k_eq_ver = 3/(1/k_1_br+1/k_2_br+1/k_3_br)
+print('Perméabilité équivalente verticale k_eq_ver = ',k_eq_ver)
 
 v3 = -9.6*10**(-4)
 v1 = -7.33*10**(-4)
 
-k_ortho_num = -v1*mu
-print('Perméabilité orthogonal numérique = ',k_ortho_num)
-K_ortho_num = k_ortho_num*rho*g/mu
-print("Conductivité orthogonal numérique = ",K_ortho_num)
+u3 = 0.00444
+u1 = 0.00117
 
 plt.show()
+
+
+
